@@ -1,0 +1,31 @@
+{
+  "name": "@actbase/react-native-kakaonavi",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "kakao navi",
+    "카카오내비",
+    "카카오네비"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@actbase/react-native-kakaosdk": "*"
+  },
+  "peerDependencies": {
+    "react-native": "*"
+  },
+  "author": {
+    "name": "Trabricks LLC",
+    "email": "project@trabricks.io",
+    "url": "https://trabricks.io"
+  },
+  "homepage": "https://github.com/trabricks/react-native-kakao-navi#readme",
+  "bugs": {
+    "url": "https://github.com/trabricks/react-native-kakao-navi/issues"
+  }
+}
