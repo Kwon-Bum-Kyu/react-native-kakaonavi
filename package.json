@@ -1,5 +1,5 @@
 {
-  "name": "@actbase/react-native-kakaonavi",
+  "name": "react-native-kakaonavi",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
@@ -21,7 +21,7 @@
   },
   "author": {
     "name": "Trabricks LLC",
-    "email": "project@trabricks.io",
+    "email": "missing107@gmail.com",
     "url": "https://trabricks.io"
   },
   "homepage": "https://github.com/Kwon-Bum-Kyu/react-native-kakaonavi#readme",
