@@ -26,7 +26,7 @@ public class ARNKakaoNavi extends ReactContextBaseJavaModule {
     public ARNKakaoNavi(ReactApplicationContext context) {
         super(context);
         this.context = context;
-        KakaoSdk.init(this.context, "appKey");
+//        KakaoSdk.init(this.context, "appKey");
     }
 
     @NonNull

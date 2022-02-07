@@ -1,12 +1,12 @@
 # 카카오내비 for React Native
 
 ![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS-brightgreen.svg?style=flat-square&colorB=191A17)
-[![npm](https://img.shields.io/npm/v/@actbase/react-native-kakao-navi.svg?style=flat-square)](https://www.npmjs.com/package/@actbase/react-native-kakao-navi)
-[![npm](https://img.shields.io/npm/dm/@actbase/react-native-kakao-navi.svg?style=flat-square&colorB=007ec6)](https://www.npmjs.com/package/@actbase/react-native-kakao-navi)
+[![npm](https://img.shields.io/npm/v/react-native-kakaonavi.svg?style=flat-square)](https://www.npmjs.com/package/react-native-kakaonavi)
+[![npm](https://img.shields.io/npm/dm/react-native-kakaonavi.svg?style=flat-square&colorB=007ec6)](https://www.npmjs.com/package/react-native-kakaonavi)
 
 [![github issues](https://img.shields.io/github/issues/trabricks/react-native-kakao-navi.svg?style=flat-square)](https://github.com/trabricks/react-native-kakao-navi/issues)
 [![github closed issues](https://img.shields.io/github/issues-closed/trabricks/react-native-kakao-navi.svg?style=flat-square&colorB=44cc11)](https://github.com/trabricks/react-native-kakao-navi/issues?q=is%3Aissue+is%3Aclosed)
-[![Issue Stats](https://img.shields.io/issuestats/i/github/trabricks/react-native-kakao-navi.svg?style=flat-square&colorB=44cc11)](http://github.com/trabricks/react-native-kakao-navi/issues)
+[![Issue Stats](https://img.shields.io/issuestats/i/github/actbase/react-kakaosdk.svg?style=flat-square&colorB=44cc11)](https://github.com/actbase/react-kakaosdk/issues)
 
 ## Guide Index
 
@@ -15,35 +15,31 @@
 
 ## 기본설정
 
-기본설정 부분은 [KakaoSDK 시작하기(React-Native)](https://github.com/trabricks/react-native-kakaosdk)를 참고해서 설정하시면 됩니다.
+기본설정 부분은 [KakaoSDK 시작하기(React-Native)](https://github.com/actbase/react-kakaosdk)를 참고해서 설정하시면 됩니다.
 
-dependencies로 되어있어서 같이 설치가 됩니다.
+[react-native-kakao-navi](https://github.com/Kwon-Bum-Kyu/react-native-kakaonavi) 해당 모듈을 개량하여 최신버전에 맞게 만들었습니다.
 
 궁금한 사항이 있는경우 카카오톡 오픈채팅 React & React-Native에서 물어보면 많은 분들이 답변해주십니다.
 
-작업하시다가 외주 혹은 작업할 업체가 필요하면 [project@trabricks.io](mailto:project@trabricks.io)로 메일 주시면 친절하게 안내해드립니다.
+
 
 ## Getting started
 
-### Mostly automatic installation (RN >= 0.60)
+### Mostly automatic installation (RN >= 0.61)
 
 ```
-$ npm install @actbase/react-native-kakaosdk @actbase/react-native-kakao-navi --save
-$ cd ios && pod install && cd ..
-```
-
-### Mostly automatic installation (RN <= 0.59)
-
-```
-$ npm install @actbase/react-native-kakaosdk @actbase/react-native-kakao-navi --save
-$ react-native link @actbase/react-native-kakaosdk @actbase/react-native-kakao-navi
+$ npx @actbase/react-kakaosdk
+$ npm install react-native-kakaonavi
 $ cd ios && pod install && cd ..
 ```
 
 ### iOS
 
-iOS에서는 Location에 대한 권한 동의 plist를 작성해주셔야 합니다.
-![`카카오내비 권한 설정`](https://developers.kakao.com/assets/images/ios/navi_setting_plist_location.png)
+iOS에서는 Location에 대한 권한 동의 plist를 작성해주셔야 합니다. 
+
+### [`카카오 권한설정`](https://developers.kakao.com/docs/latest/ko/getting-started/sdk-ios)
+
+### [`카카오 내비 권한설정`](https://developers.kakao.com/docs/latest/ko/kakaonavi/ios)
 
 ## `카카오내비`
 
@@ -60,8 +56,8 @@ iOS에서는 Location에 대한 권한 동의 plist를 작성해주셔야 합니
 ```typescript
 const destination: ARNKakaoNaviLocation = {
   name: "카카오판교오피스",
-  x: 321286,
-  y: 533707
+  x: "321286",
+  y: "533707"
 };
 ```
 
@@ -87,8 +83,8 @@ const options: ARNKakaoNaviOptions = {
   vehicleType: VehicleType.Second,
   rpoption: RpOption.HighWay,
   routeInfo: false,
-  startX: 321286,
-  startY: 533707,
+  startX: "321286",
+  startY: "533707",
   startAngle: 0,
   userId: "asdf",
   returnUri: "localhost"
@@ -105,18 +101,18 @@ const options: ARNKakaoNaviOptions = {
 const viaList: ARNKakaoNaviViaList = [
   {
     name: "카카오판교오피스",
-    x: 321286,
-    y: 533707
+    x: "321286",
+    y: "533707"
   },
   {
     name: "카카오판교오피스",
-    x: 321286,
-    y: 533707
+    x: "321286",
+    y: "533707"
   },
   {
     name: "카카오판교오피스",
-    x: 321286,
-    y: 533707
+    x: "321286",
+    y: "533707"
   }
 ];
 ```
@@ -152,28 +148,35 @@ const viaList: ARNKakaoNaviViaList = [
 | HighWay  | 6     | 고속도로우선   |
 | Normal   | 7     | 일반도로우선   |
 
+### `기본 세팅`
+```typescript
+import KaKaoNavi from "react-native-kakaonavi";
+import KakaoSDK from "@actbase/react-kakaosdk";
+
+export const App = () => {
+  useEffect(() => {
+    inits();
+  }, [])
+  const inits = async () => {
+    await KakaoSDK.init("KaKao_App_Key");
+  }
+}
+```
+
 ### `목적지 공유`
 
 ```typescript
-KakaoSDK.Navi
+KaKaoNavi
   .share(destination, options, viaList)
   .then(res => console.log(res))
   .catch(e => console.log(e));
 ```
 
-다음은 SDK를 통하여 목적지를 공유하였을 때 실행되는 카카오내비 화면입니다.
-
-![`목적지 공유 이미지`](https://developers.kakao.com/assets/images/ios/navi_share.png)
-
 #### `목적지 길안내`
 
 ```typescript
-KakaoSDK.Navi
+KaKaoNavi
   .navigate(destination, options, viaList)
   .then(res => console.log(res))
   .catch(e => console.log(e));
 ```
-
-다음은 SDK를 통하여 길안내를 실행하였을 때 안내가 시작된 화면입니다.
-
-![`길안내 이미지`](https://developers.kakao.com/assets/images/ios/navi_start.png)
